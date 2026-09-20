@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Giri Akhilesh — Accountant</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Giri Akhilesh, an experienced accountant with a background in business operations and financial documentation."
+  />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+    :root {
+      --bg: #10110f;
+      --surface: #191b18;
+      --surface-light: #232720;
+      --text: #f1f0e9;
+      --muted: #9da397;
+      --line: #343830;
+      --lime: #c9f36b;
+      --orange: #ff8960;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        var(--bg);
+      background-size: 44px 44px;
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      background: radial-gradient(
+        520px circle at var(--mouse-x, 50%) var(--mouse-y, 20%),
+        rgba(201, 243, 107, 0.08),
+        transparent 45%
+      );
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: fixed;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      margin-inline: auto;
+      width: min(calc(100% - 40px), var(--max-width));
+    }
+
+    .mono {
+      color: var(--lime);
+      font-family: "DM Mono", monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Navigation */
+
+    nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 28px 0;
+    }
+
+    .logo {
+      border: 1px solid var(--lime);
+      color: var(--lime);
+      font-family: "DM Mono", monospace;
+      padding: 9px 12px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav li a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.25s ease;
+    }
+
+    nav li a:hover {
+      color: var(--lime);
+    }
+
+    /* Hero */
+
+    .hero {
+      align-items: end;
+      display: grid;
+      gap: 60px;
+      grid-template-columns: 1.25fr 0.75fr;
+      min-height: 690px;
+      padding: 110px 0 135px;
+    }
+
+    .status {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .status-dot {
+      animation: pulse 1.8s infinite;
+      background: var(--lime);
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(201, 243, 107, 0.45);
+      }
+
+      50% {
+        box-shadow: 0 0 0 9px rgba(201, 243, 107, 0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(4.5rem, 11vw, 10rem);
+      letter-spacing: -0.1em;
+      line-height: 0.8;
+    }
+
+    .hero h1 span {
+      color: var(--lime);
+      display: block;
+    }
+
+    .hero-role {
+      color: var(--orange);
+      font-family: "DM Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      margin-top: 42px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      border-left: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.75;
+      padding-left: 25px;
+    }
+
+    .scroll-note {
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      font-size: 0.72rem;
+      margin-top: 70px;
+    }
+
+    /* Sections */
+
+    section {
+      border-top: 1px solid var(--line);
+      padding: 110px 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: 0.35fr 1fr;
+      margin-bottom: 60px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      letter-spacing: -0.08em;
+      line-height: 0.93;
+      max-width: 720px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* About */
+
+    .about-grid {
+      align-items: center;
+      display: grid;
+      gap: 75px;
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .profile-frame {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 13px;
+      position: relative;
+      transform: rotate(-2deg);
+    }
+
+    .profile-frame::after {
+      border: 1px solid var(--lime);
+      content: "";
+      inset: 12px;
+      position: absolute;
+      transform: translate(13px, 13px);
+      z-index: -1;
+    }
+
+    .profile-frame img {
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(135deg, var(--lime), var(--orange));
+      display: block;
+      filter: grayscale(100%);
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.85;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .details {
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 42px;
+      padding-top: 22px;
+    }
+
+    .detail small {
+      color: var(--muted);
+      display: block;
+      font-family: "DM Mono", monospace;
+      font-size: 0.68rem;
+      margin-bottom: 9px;
+      text-transform: uppercase;
+    }
+
+    .detail span {
+      font-size: 0.95rem;
+    }
+
+    /* Expertise */
+
+    .skills {
+      display: grid;
+      gap: 2px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill {
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      padding: 28px 25px;
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .skill:hover {
+      background: var(--surface-light);
+      transform: translateX(7px);
+    }
+
+    .skill-number {
+      color: var(--lime);
+      font-family: "DM Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    .skill-name {
+      font-size: 1.05rem;
+    }
+
+    /* Experience */
+
+    .timeline {
+      border-left: 1px solid var(--lime);
+      margin-left: 12px;
+    }
+
+    .job {
+      padding: 0 0 62px 38px;
+      position: relative;
+    }
+
+    .job:last-child {
+      padding-bottom: 0;
+    }
+
+    .job::before {
+      background: var(--lime);
+      border: 5px solid var(--bg);
+      border-radius: 50%;
+      content: "";
+      height: 12px;
+      left: -7px;
+      position: absolute;
+      top: 2px;
+      width: 12px;
+    }
+
+    .job-date {
+      color: var(--orange);
+      font-family: "DM Mono", monospace;
+      font-size: 0.74rem;
+    }
+
+    .job h3 {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .job p {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 700px;
+    }
+
+    /* Languages and hobbies */
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      font-size: 0.78rem;
+      padding: 13px 17px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Animations */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      nav .mono {
+        font-size: 0.62rem;
+      }
+
+      .hero {
+        display: block;
+        min-height: auto;
+        padding: 90px 0 110px;
+      }
+
+      .hero h1 {
+        font-size: clamp(4.3rem, 20vw, 7rem);
+      }
+
+      .hero-copy {
+        margin-top: 55px;
+      }
+
+      .section-head,
+      .about-grid {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 25px;
+      }
+
+      .profile-frame {
+        margin: 0 auto 70px;
+        max-width: 330px;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .details {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav>
+      <a class="logo" href="#">GA / 01</a>
+
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+
+      <span class="mono">Accountant — 2026</span>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <div>
+        <div class="status mono">
+          <span class="status-dot"></span>
+          Detail-oriented professional
+        </div>
+
+        <h1>
+          Giri
+          <span>Akhilesh.</span>
+        </h1>
+
+        <p class="hero-role">Accountant · Operations · Documentation</p>
+
+        <p class="scroll-note">↓ Scroll to explore</p>
+      </div>
+
+      <div class="hero-copy reveal">
+        An experienced accountant with a practical background in business
+        operations, financial documentation, customer communication, and
+        day-to-day administrative work.
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="mono">01 / About</span>
+
+          <div>
+            <h2>Clear records. Reliable work.</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="profile-frame reveal">
+            <img
+              id="profile-image"
+              src="assets/profile.png"
+              alt="Portrait of Giri Akhilesh"
+            />
+          </div>
+
+          <div class="reveal">
+            <p class="about-text">
+              I’m <strong>Giri Akhilesh</strong> — an accountant with experience
+              in business operations, financial documentation, customer-facing
+              work, and record handling.
+              <br /><br />
+              I bring a careful, organized approach to everyday accounting
+              responsibilities and administrative processes.
+            </p>
+
+            <div class="details">
+              <div class="detail">
+                <small>Nationality</small>
+                <span>Indian</span>
+              </div>
+
+              <div class="detail">
+                <small>Education</small>
+                <span>B.Com.</span>
+              </div>
+
+              <div class="detail">
+                <small>Qualification</small>
+                <span>Computer Application</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="mono">02 / Expertise</span>
+
+          <div>
+            <h2>Practical skills with purpose.</h2>
+
+            <p>
+              A professional foundation built around accuracy, organization,
+              documentation, and dependable day-to-day business support.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills reveal">
+          <div class="skill">
+            <span class="skill-number">01</span>
+            <span class="skill-name">Bookkeeping & Record Keeping</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">02</span>
+            <span class="skill-name">Financial Documentation</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">03</span>
+            <span class="skill-name">Invoice & Bill Management</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">04</span>
+            <span class="skill-name">Accounts Support</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">05</span>
+            <span class="skill-name">Data Entry & Verification</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">06</span>
+            <span class="skill-name">Business Documentation</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">07</span>
+            <span class="skill-name">Customer Communication</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-number">08</span>
+            <span class="skill-name">Office Administration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="mono">03 / Experience</span>
+
+          <div>
+            <h2>Experience that builds trust.</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="job reveal">
+            <span class="job-date">3–4 YEARS</span>
+            <h3>Accountant</h3>
+            <p>
+              <strong>Bajnath Landscape</strong> — handled accounting-related
+              responsibilities, financial documentation, business records, and
+              day-to-day administrative work.
+            </p>
+          </article>
+
+          <article class="job reveal">
+            <span class="job-date">3 YEARS</span>
+            <h3>Personal Banking Officer</h3>
+            <p>
+              <strong>ICICI Bank</strong> — handled customer communication and
+              promoted health insurance products over the phone.
+            </p>
+          </article>
+
+          <article class="job reveal">
+            <span class="job-date">2 MONTHS</span>
+            <h3>Medical Representative</h3>
+            <p>
+              <strong>Wens Drugs</strong> — met doctors, conducted surveys, and
+              monitored the supply of medicines.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages and hobbies -->
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="mono">04 / Beyond work</span>
+
+          <div>
+            <h2>Communication. Curiosity. Consistency.</h2>
+
+            <p>
+              Comfortable communicating with people and committed to continuous
+              learning through reading and writing.
+            </p>
+          </div>
+        </div>
+
+        <div class="tag-list reveal">
+          <span class="tag">English</span>
+          <span class="tag">Hindi</span>
+          <span class="tag">Marathi</span>
+          <span class="tag">Reading</span>
+          <span class="tag">Writing</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="mono">Giri Akhilesh</span>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    // Try profile.png, then profile.jpg, then profile.jpeg
+    const profileImage = document.querySelector("#profile-image");
+
+    const imageOptions = [
+      "assets/profile.png",
+      "assets/profile.jpg",
+      "assets/profile.jpeg"
+    ];
+
+    let imageIndex = 0;
+
+    profileImage.addEventListener("error", () => {
+      imageIndex++;
+
+      if (imageIndex < imageOptions.length) {
+        profileImage.src = imageOptions[imageIndex];
+      } else {
+        profileImage.alt = "Giri Akhilesh";
+        profileImage.style.display = "none";
+        profileImage.parentElement.style.background =
+          "linear-gradient(135deg, #c9f36b, #ff8960)";
+      }
+    });
+
+    // Reveal animations on scroll
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    // Subtle cursor lighting
+    window.addEventListener("pointermove", (event) => {
+      document.body.style.setProperty("--mouse-x", `${event.clientX}px`);
+      document.body.style.setProperty("--mouse-y", `${event.clientY}px`);
+    });
+  </script>
+</body>
+</html>
